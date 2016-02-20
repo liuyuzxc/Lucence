@@ -1,7 +1,9 @@
 # Lucence
 Lucence小案例
 
-实现索引
+实现：
+
+索引
 
 检索
 
