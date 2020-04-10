@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>等级成功</title>
+
+        <style type="text/css">
+            div.dyTime {
+                position: absolute;
+                font-size: 40px;
+                height: 300px;
+                width: 1000px;
+                top: 1090px;
+                left: 130px
+            }
+        </style>
+
+    </head>
+    <body>
+        <!--<img src="/Users/liuyu/WechatIMG70.png" />-->
+        <div>
+            <div>
+                <img src="https://gw.alipayobjects.com/mdn/rms_d12311/afts/img/A*X7T0SJyrmFQAAAAAAAAAAABkARQnAQ" />
+            </div>
+            <div class='dyTime'>
+                <p>姓名：刘宇</p>
+                <p>房号：A8-3-603</p>
+                <p id="dateTime"></p>
+            </div>
+        </div>
+
+
+        <script>
+            Date.prototype.format = function (fmt) {
+                var o = {
+                    "y+": this.getFullYear, //年
+                    "M+": this.getMonth() + 1, //月份
+                    "d+": this.getDate(), //日
+                    "h+": this.getHours(), //小时
+                    "m+": this.getMinutes(), //分
+                    "s+": this.getSeconds() //秒
+                };
+                if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+                for (var k in o)
+                    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+                return fmt;
+            }
+            document.getElementById('dateTime').innerHTML = '时间：' + (new Date()).format('yyyy-MM-dd hh:mm:ss');
+        </script>
+
+    </body>
+
+
+</html>
